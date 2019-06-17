@@ -1,0 +1,46 @@
+<h1>Articles</h1>
+
+<h2>Articles that are not saved</h2>
+
+<div class="row align-items-start">
+  {{#each Article}}
+  {{#unless saved}}
+  <div class="col">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{img}}" alt=" Card image cap">
+      <div class="card-body">
+
+        <p class="card-text">{{title}}
+        </p>
+        <a target="_blank" href="https://www.ksl.com{{link}}" class="btn btn-primary btn-sm">Go to article</a>
+        <a id="saveButton" data-id="{{_id}}" class="btn btn-primary btn-sm">Save Article</a>
+        <a id="noteButton" data-id="{{_id}}" class="btn btn-primary btn-sm">Add note to article</a>
+
+      </div>
+    </div>
+  </div>
+  {{/unless}}
+  {{/each}}
+</div>
+
+
+<h2>Articles that are saved</h2>
+
+<div class="row align-items-start">
+  {{#each Article}}
+  {{#if saved}}
+  <div class="col">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{img}}" alt=" Card image cap">
+      <div class="card-body">
+
+        <p class="card-text">{{title}}</p>
+        <a target="_blank" href="https://www.ksl.com{{link}}" class="btn btn-primary btn-sm">Go to article</a>
+        <a id="unsaveButton" data-id={{_id}} class="btn btn-primary btn-sm">Unsave Article</a>
+        <a id="noteButton" data-id="{{_id}}" class="btn btn-primary btn-sm">Add note to article</a>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{/each}}
+</div>
