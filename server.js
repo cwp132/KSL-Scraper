@@ -30,10 +30,10 @@ app.set("view engine", "handlebars");
 app.use(logger("dev"));
 // Parse request body as JSON
 
-
+var MONGODD_URI = process.env.MONGODB_URI || "mongodb://localhost/unit18Populater";
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Routes
 
