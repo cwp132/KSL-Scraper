@@ -8,11 +8,11 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+var PORT = 8080;
 
 // Initialize Express
-var app = express();
 
+var app = express();
 // Configure middleware
 app.use(express.static("static"));
 
@@ -99,12 +99,15 @@ app.get("/scrape", function (req, res) {
 //         });
 // });
 
-app.get("/articles", function (req, res) {
+app.get("/", function (req, res) {
+
+    console.log(req.body + " " + res.body);
     db.Article.find({})
         .then(function (data) {
             var hbsObject = {
                 Article: data
             };
+            console.log("working")
             console.log(hbsObject);
             res.render("index", hbsObject);
         })
@@ -127,7 +130,8 @@ app.get("/articles/:id", function (req, res) {
 });
 
 app.post("/saved/:id", function (req, res) {
-    db.Article.updateOne({ _id: req.params.id }, data)
+    console.log(req.body);
+    db.Article.updateOne({ _id: req.params.id }, req.body)
         .then(function (dbArticle) {
             // If we were able to successfully find an Article with the given id, send it back to the client
             res.json(dbArticle);
@@ -137,6 +141,22 @@ app.post("/saved/:id", function (req, res) {
             res.json(err);
         });
     // console.log("asdffasdfadfsdf" + req.params.id);
+    // location.reload();
+})
+
+app.post("/unsave/:id", function (req, res) {
+    console.log(req.body);
+    db.Article.updateOne({ _id: req.params.id }, req.body)
+        .then(function (dbArticle) {
+            // If we were able to successfully find an Article with the given id, send it back to the client
+            res.json(dbArticle);
+        })
+        .catch(function (err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+    // console.log("asdffasdfadfsdf" + req.params.id);
+
 })
 
 // Route for saving/updating an Article's associated Note
@@ -163,3 +183,4 @@ app.post("/saved/:id", function (req, res) {
 app.listen(PORT, function () {
     console.log("App running on port " + PORT + "!");
 });
+

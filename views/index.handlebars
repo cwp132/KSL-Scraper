@@ -13,8 +13,7 @@
         <p class="card-text">{{title}}
         </p>
         <a target="_blank" href="https://www.ksl.com{{link}}" class="btn btn-primary btn-sm">Go to article</a>
-        <a id="saveButton" data-id="{{_id}}" class="btn btn-primary btn-sm">Save Article</a>
-        <a id="noteButton" data-id="{{_id}}" class="btn btn-primary btn-sm">Add note to article</a>
+        <a data-id="{{_id}}" class="btn saveButton btn-primary btn-sm">Save Article</a>
 
       </div>
     </div>
@@ -36,8 +35,8 @@
 
         <p class="card-text">{{title}}</p>
         <a target="_blank" href="https://www.ksl.com{{link}}" class="btn btn-primary btn-sm">Go to article</a>
-        <a id="unsaveButton" data-id={{_id}} class="btn btn-primary btn-sm">Unsave Article</a>
-        <a id="noteButton" data-id="{{_id}}" class="btn btn-primary btn-sm">Add note to article</a>
+        <a data-id={{_id}} class="btn unsaveButton btn-primary btn-sm">Unsave Article</a>
+
       </div>
     </div>
   </div>
