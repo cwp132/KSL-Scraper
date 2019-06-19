@@ -32,7 +32,7 @@ app.use(logger("dev"));
 
 mongoose.connect(
     process.envMONGODB_URI || 
-    "mongodb://username1:password1@ds013206.mlab.com:13206/heroku_zx07jtzg”,
+    "mongodb://username:password2@ds013206.mlab.com:13206/heroku_zx07jtzg”,
     {
     useMongoClient: true
     }
