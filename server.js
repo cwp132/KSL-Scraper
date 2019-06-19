@@ -33,7 +33,7 @@ app.use(logger("dev"));
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/unit18Populater";
 
 // Connect to the Mongo DB
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // A GET route for scraping the echoJS website
 app.get("/scrape", function (req, res) {
