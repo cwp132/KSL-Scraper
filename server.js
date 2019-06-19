@@ -30,7 +30,7 @@ app.set("view engine", "handlebars");
 app.use(logger("dev"));
 // Parse request body as JSON
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:password1@ds041924.mlab.com:41924/heroku_69517w8b”;
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/unit18Populater”;
 
 // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI);
