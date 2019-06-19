@@ -32,11 +32,7 @@ app.use(logger("dev"));
 
 mongoose.connect(
     process.envMONGODB_URI || 
-    "mongodb://username:password2@ds013206.mlab.com:13206/heroku_zx07jtzg”,
-    {
-    useMongoClient: true
-    }
-);
+    "mongodb://username:password2@ds013206.mlab.com:13206/heroku_zx07jtzg”);
 // Routes
 
 // A GET route for scraping the echoJS website
